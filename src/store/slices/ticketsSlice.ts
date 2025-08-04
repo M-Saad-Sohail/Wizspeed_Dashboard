@@ -24,7 +24,6 @@ const initialState: TicketsState = {
   error: null,
 };
 
-// Async thunks
 export const fetchTickets = createAsyncThunk(
   "tickets/fetchTickets",
   async () => {
@@ -128,17 +127,14 @@ const ticketsSlice = createSlice({
         state.error = action.error.message || "Failed to update ticket";
       })
       .addCase(deleteTicketAsync.pending, (state) => {
-        // state.isLoading = true;
         state.error = null;
       })
       .addCase(deleteTicketAsync.fulfilled, (state, action) => {
-        // state.isLoading = false;
         state.tickets = state.tickets.filter(
           (ticket) => ticket.id !== action.payload
         );
       })
       .addCase(deleteTicketAsync.rejected, (state, action) => {
-        // state.isLoading = false;
         state.error = action.error.message || "Failed to delete ticket";
       });
   },

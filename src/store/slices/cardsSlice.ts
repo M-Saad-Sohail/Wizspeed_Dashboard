@@ -23,7 +23,6 @@ const initialState: CardsState = {
   error: null,
 };
 
-// Async thunks
 export const fetchCards = createAsyncThunk("cards/fetchCards", async () => {
   const { data, error } = await supabase
     .from("cards")

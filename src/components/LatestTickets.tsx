@@ -36,7 +36,6 @@ import {
 } from "@/components/ui/dropdown-menu";
 import {
   Plus,
-  MessageCircle, // Updated Icon
   Edit,
   Trash2,
   Search,
@@ -45,16 +44,14 @@ import {
   MoreHorizontal,
 } from "lucide-react";
 
-// --- Define a default state for a new ticket ---
 const defaultNewTicketState: Omit<TicketData, "id"> = {
   customer: "",
   issue: "",
-  status: "To do", // Default to "To do" to match design
+  status: "To do",
   project: "",
   date: new Date().toISOString().split("T")[0],
 };
 
-// --- Helper component for status indicators ---
 const StatusIndicator = ({ status }: { status: string }) => {
   const statusConfig = {
     "To do": "bg-cyan-500",
@@ -87,7 +84,6 @@ const LatestTickets = () => {
     dispatch(fetchTickets());
   }, [dispatch]);
 
-  // --- All your handlers (handleAdd, handleEdit, handleSubmit, etc.) remain unchanged ---
   const handleAdd = () => {
     setIsEditing(false);
     setCurrentTicket(defaultNewTicketState);
@@ -146,7 +142,6 @@ const LatestTickets = () => {
       <CardHeader className="flex flex-row items-center justify-between p-6 border-b border-neutral-800">
         <CardTitle className="text-xl font-semibold">Latest Tickets</CardTitle>
         <div className="flex items-center gap-3">
-          {/* --- DIALOG REMAINS FUNCTIONAL --- */}
           <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
             <DialogTrigger asChild>
               <Button
@@ -164,7 +159,6 @@ const LatestTickets = () => {
                 </DialogTitle>
               </DialogHeader>
               <form onSubmit={handleSubmit} className="space-y-4">
-                {/* All your form inputs are here and functional */}
                 <div>
                   <Label htmlFor="customer">Customer Name</Label>
                   <Input
@@ -238,7 +232,6 @@ const LatestTickets = () => {
             </DialogContent>
           </Dialog>
 
-          {/* Styled Filter Controls */}
           <Select defaultValue="projects">
             <SelectTrigger className="w-[180px] bg-neutral-800 border-neutral-700 text-neutral-300">
               <SelectValue />
@@ -330,7 +323,6 @@ const LatestTickets = () => {
                     <StatusIndicator status={ticket.status} />
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap text-right">
-                    {/* --- DROPDOWN WITH EDIT/DELETE REMAINS FUNCTIONAL --- */}
                     <DropdownMenu>
                       <DropdownMenuTrigger asChild>
                         <Button

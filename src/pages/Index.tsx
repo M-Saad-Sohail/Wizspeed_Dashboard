@@ -18,15 +18,12 @@ const Index = () => {
           </div>
 
           <DashboardCards />
-
-          {/* <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mt-6"> */}
           <div className="lg:col-span-2">
             <TopServices />
           </div>
           <div className="lg:col-span-1">
             <LatestTickets />
           </div>
-          {/* </div> */}
         </main>
       </div>
     </div>

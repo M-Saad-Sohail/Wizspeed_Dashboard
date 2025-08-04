@@ -137,12 +137,9 @@ const DashboardCards: React.FC = () => {
             </CardHeader>
 
             <CardContent className="px-4 py-4"> 
-              {/* Big number */}
               <div className={`text-3xl font-bold ${card.color} mb-2`}>
                 {card.value}
               </div>
-
-              {/* Green badge subtitle */}
               <span className="inline-block bg-[#0e3426] text-[#00ca77] text-xs px-2 py-1 rounded">
                 {card.subtitle}
               </span>

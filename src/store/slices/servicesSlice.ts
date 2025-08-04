@@ -23,7 +23,6 @@ const initialState: ServicesState = {
   isAddingService: false,
 };
 
-// Async thunks
 export const fetchServices = createAsyncThunk(
   "services/fetchServices",
   async () => {
